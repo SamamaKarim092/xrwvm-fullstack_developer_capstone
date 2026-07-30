@@ -1,28 +1,26 @@
-$ gh run list
-STATUS  NAME             WORKFLOW        BRANCH  EVENT  ID          ELAPSED  AGE
-✓       CI/CD Workflow   CI/CD Workflow  main    push   1092837415  28s      1m
-
-$ gh run view 1092837415 --verbose
-✓ main CI/CD Workflow · 1092837415
-Triggered via push 1 minute ago
+✓ main Lint Code · 18836357268
+Triggered via push about 7 minutes ago
 
 JOBS
-✓ server-lint in 16s (ID 2948192841)
+✓ Lint Python Files in 16s (ID 53738140285)
   ✓ Set up job
-  ✓ Run actions/checkout@v3
-  ✓ Set up Python 3.10
+  ✓ Checkout Repository
+  ✓ Set up Python
   ✓ Install dependencies
-  ✓ Lint with flake8
-  ✓ Post Run actions/checkout@v3
+  ✓ Print working directory
+  ✓ Run Linter
+  ✓ Post Set up Python
+  ✓ Post Checkout Repository
   ✓ Complete job
-
-✓ frontend-lint in 12s (ID 2948192842)
+✓ Lint JavaScript Files in 11s (ID 53738140290)
   ✓ Set up job
-  ✓ Run actions/checkout@v3
-  ✓ Set up Node.js
-  ✓ Install jshint
-  ✓ Run jshint
-  ✓ Post Run actions/checkout@v3
+  ✓ Checkout Repository
+  ✓ Install Node.js
+  ✓ Install JSHint
+  ✓ Run Linter
+  ✓ Post Install Node.js
+  ✓ Post Checkout Repository
   ✓ Complete job
 
-Workflow run completed successfully. All 2 jobs passed.
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/SamamaKarim092/xrwvm-fullstack_developer_capstone/actions/runs/18836357268
