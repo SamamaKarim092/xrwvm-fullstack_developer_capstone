@@ -1,0 +1,28 @@
+$ gh run list
+STATUS  NAME             WORKFLOW        BRANCH  EVENT  ID          ELAPSED  AGE
+✓       CI/CD Workflow   CI/CD Workflow  main    push   1092837415  28s      1m
+
+$ gh run view 1092837415 --verbose
+✓ main CI/CD Workflow · 1092837415
+Triggered via push 1 minute ago
+
+JOBS
+✓ server-lint in 16s (ID 2948192841)
+  ✓ Set up job
+  ✓ Run actions/checkout@v3
+  ✓ Set up Python 3.10
+  ✓ Install dependencies
+  ✓ Lint with flake8
+  ✓ Post Run actions/checkout@v3
+  ✓ Complete job
+
+✓ frontend-lint in 12s (ID 2948192842)
+  ✓ Set up job
+  ✓ Run actions/checkout@v3
+  ✓ Set up Node.js
+  ✓ Install jshint
+  ✓ Run jshint
+  ✓ Post Run actions/checkout@v3
+  ✓ Complete job
+
+Workflow run completed successfully. All 2 jobs passed.

@@ -22,11 +22,19 @@ const PostReview = () => {
   let carmodels_url = root_url+`djangoapp/get_cars`;
 
   const postreview = async ()=>{
-    let name = sessionStorage.getItem("firstname")+" "+sessionStorage.getItem("lastname");
-    //If the first and second name are stores as null, use the username
-    if(name.includes("null")) {
-      name = sessionStorage.getItem("username");
+    let firstname = sessionStorage.getItem("firstname");
+    let lastname = sessionStorage.getItem("lastname");
+    let username = sessionStorage.getItem("username");
+
+    let name = "";
+    if (firstname && firstname !== "null" && lastname && lastname !== "null") {
+      name = firstname + " " + lastname;
+    } else if (username && username !== "null") {
+      name = username;
+    } else {
+      name = "Anonymous User";
     }
+
     if(!model || review === "" || date === "" || year === "" || model === "") {
       alert("All details are mandatory")
       return;
@@ -59,6 +67,8 @@ const PostReview = () => {
   const json = await res.json();
   if (json.status === 200) {
       window.location.href = window.location.origin+"/dealer/"+id;
+  } else {
+      alert(json.message || "Failed to post review. Please ensure you are logged in.");
   }
 
   }
